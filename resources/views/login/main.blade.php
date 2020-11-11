@@ -9,17 +9,17 @@
         <div class="block xl:grid grid-cols-2 gap-4">
             <!-- BEGIN: Login Info -->
             <div class="hidden xl:flex flex-col min-h-screen">
-                <a href="" class="-intro-x flex items-center pt-5">
-                    <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
-                    <span class="text-white text-lg ml-3">
-                        Mid<span class="font-medium">One</span>
-                    </span>
-                </a>
-                <div class="my-auto">
-                    <img alt="Midone Tailwind HTML Admin Template" class="-intro-x w-1/2 -mt-16" src="{{ asset('dist/images/illustration.svg') }}">
-                    <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">A few more clicks to <br> sign in to your account.</div>
-                    <div class="-intro-x mt-5 text-lg text-white dark:text-gray-500">Manage all your e-commerce accounts in one place</div>
-                </div>
+{{--                <a href="" class="-intro-x flex items-center pt-5">--}}
+{{--                    <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="{{ asset('dist/images/logo.svg') }}">--}}
+{{--                    <span class="text-white text-lg ml-3">--}}
+{{--                        Mid<span class="font-medium">One</span>--}}
+{{--                    </span>--}}
+{{--                </a>--}}
+{{--                <div class="my-auto">--}}
+{{--                    <img alt="Midone Tailwind HTML Admin Template" class="-intro-x w-1/2 -mt-16" src="{{ asset('dist/images/illustration.svg') }}">--}}
+{{--                    <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">A few more clicks to <br> sign in to your account.</div>--}}
+{{--                    <div class="-intro-x mt-5 text-lg text-white dark:text-gray-500">Manage all your e-commerce accounts in one place</div>--}}
+{{--                </div>--}}
             </div>
             <!-- END: Login Info -->
             <!-- BEGIN: Login Form -->
@@ -44,16 +44,13 @@
                     </div>
                     <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
                         <button id="btn-login" class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3 align-top">Login</button>
-                        <button class="button button--lg w-full xl:w-32 text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300 mt-3 xl:mt-0 align-top">Sign up</button>
                     </div>
-                    <div class="intro-x mt-10 xl:mt-24 text-gray-700 dark:text-gray-600 text-center xl:text-left">
-                        By signin up, you agree to our <br> <a class="text-theme-1 dark:text-theme-10" href="">Terms and Conditions</a> & <a class="text-theme-1 dark:text-theme-10" href="">Privacy Policy</a>
-                    </div>
+
                 </div>
             </div>
             <!-- END: Login Form -->
         </div>
-    </div>    
+    </div>
 @endsection
 
 @section('script')
@@ -68,7 +65,7 @@
                 let email = cash('#input-email').val()
                 let password = cash('#input-password').val()
                 let rememberMe = cash('#input-remember-me').val()
-                
+
                 // Loading state
                 cash('#btn-login').html('<i data-loading-icon="oval" data-color="white" class="w-5 h-5 mx-auto"></i>').svgLoader()
                 await helper.delay(1500)
@@ -98,7 +95,7 @@
                     login()
                 }
             })
-            
+
             cash('#btn-login').on('click', function() {
                 login()
             })

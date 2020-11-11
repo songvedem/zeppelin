@@ -11,7 +11,8 @@ class AuthController extends Controller
      * Show specified view.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function loginView()
     {
@@ -31,7 +32,7 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         if (!\Auth::attempt([
-            'email' => $request->email, 
+            'email' => $request->email,
             'password' => $request->password
         ])) {
             throw new \Exception('Wrong email or password.');
@@ -42,7 +43,8 @@ class AuthController extends Controller
      * Logout user.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function logout()
     {
