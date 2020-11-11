@@ -1,13 +1,15 @@
 <!-- BEGIN: Top Bar -->
 <div class="top-bar">
     <!-- BEGIN: Breadcrumb -->
-    <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
+    <div class="-intro-x breadcrumb  hidden sm:flex" style="margin-right: 60%">
         <a href="" class="">Application</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href="" class="breadcrumb--active">Dashboard</a>
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->
+
+
     <div class="intro-x relative mr-3 sm:mr-6">
         <div class="search hidden sm:block">
             <input type="text" class="search__input input placeholder-theme-13" placeholder="Search...">
@@ -64,6 +66,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- END: Search -->
     <!-- BEGIN: Notifications -->
     <div class="intro-x dropdown mr-auto sm:mr-6">
@@ -91,11 +95,12 @@
             </div>
         </div>
     </div>
-    <!-- END: Notifications -->
-    <!-- BEGIN: Account Menu -->
+{{--    <!-- END: Notifications -->--}}
+{{--    <!-- BEGIN: Account Menu -->--}}
     <div class="intro-x dropdown w-8 h-8">
-        <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in">
-            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('dist/images/' . $fakers[9]['photos'][0]) }}">
+        <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" style="width: 8rem; text-align: center">
+{{--            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('dist/images/' . $fakers[9]['photos'][0]) }}">--}}
+            <p>{{ \Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->name : ""}}</p>
         </div>
         <div class="dropdown-box w-56">
             <div class="dropdown-box__content box bg-theme-38 dark:bg-dark-6 text-white">

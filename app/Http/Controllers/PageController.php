@@ -10,10 +10,26 @@ class PageController extends Controller
      * Show specified view.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function loadPage($layout = 'side-menu', $theme = 'light', $pageName = 'dashboard')
     {
+        $activeMenu = $this->activeMenu($layout, $pageName);
+        return view('pages/' . $pageName, [
+            'top_menu' => $this->topMenu(),
+            'side_menu' => $this->sideMenu(),
+            'simple_menu' => $this->simpleMenu(),
+            'first_page_name' => $activeMenu['first_page_name'],
+            'second_page_name' => $activeMenu['second_page_name'],
+            'third_page_name' => $activeMenu['third_page_name'],
+            'page_name' => $pageName,
+            'theme' => $theme,
+            'layout' => $layout
+        ]);
+    }
+
+    public function loadSummaryReport($layout = 'side-menu', $theme = 'light', $pageName = 'summary-report') {
         $activeMenu = $this->activeMenu($layout, $pageName);
         return view('pages/' . $pageName, [
             'top_menu' => $this->topMenu(),
@@ -32,7 +48,8 @@ class PageController extends Controller
      * Determine active menu & submenu.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     * @return array
      */
     public function activeMenu($layout, $pageName)
     {
@@ -128,7 +145,8 @@ class PageController extends Controller
      * List of side menu items.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     * @return \string[][]
      */
     public function sideMenu()
     {
@@ -137,7 +155,7 @@ class PageController extends Controller
                 'icon' => 'home',
                 'layout' => 'side-menu',
                 'page_name' => 'dashboard',
-                'title' => 'Dashboard'
+                'title' => 'Overview'
             ],
             /*
             'menu-layout' => [
@@ -584,7 +602,8 @@ class PageController extends Controller
      * List of simple menu items.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     * @return array
      */
     public function simpleMenu()
     {
