@@ -3,18 +3,17 @@
 /*    width: 100%;*/
 /*}*/
 .frequent-host {
-    border: 1px solid red;
+    box-sizing: border-box;
     min-height: 250px;
 }
 .frequent-path {
     width: 203%;
-    border: 1px solid red;
+    box-sizing: border-box;
     min-height: 250px;
 }
 
 .operating-system {
     margin-top: 20px;
-    border: 1px solid red;
     min-height: 250px;
 }
 .user {

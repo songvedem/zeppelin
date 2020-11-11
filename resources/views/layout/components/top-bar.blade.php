@@ -4,7 +4,7 @@
     <div class="-intro-x breadcrumb  hidden sm:flex">
         <a href="" class="">Application</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-        <a href="" class="breadcrumb--active">Dashboard</a>
+        <a href="" class="breadcrumb--active">{{$name}}</a>
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->

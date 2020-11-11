@@ -1,7 +1,7 @@
 @extends('../layout/side-menu')
 
 @section('subhead')
-    <title>Summary report</title>
+    <title>Ip activities</title>
 @endsection
 
 @section('subcontent')

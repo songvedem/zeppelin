@@ -25,7 +25,8 @@ class PageController extends Controller
             'third_page_name' => $activeMenu['third_page_name'],
             'page_name' => $pageName,
             'theme' => $theme,
-            'layout' => $layout
+            'layout' => $layout,
+            'name' => 'Overview'
         ]);
     }
 
@@ -40,7 +41,24 @@ class PageController extends Controller
             'third_page_name' => $activeMenu['third_page_name'],
             'page_name' => $pageName,
             'theme' => $theme,
-            'layout' => $layout
+            'layout' => $layout,
+            'name' => 'Summary Report'
+        ]);
+    }
+
+    public function loadIpActivities($layout = 'side-menu', $theme = 'light', $pageName = 'ip-activities') {
+        $activeMenu = $this->activeMenu($layout, $pageName);
+        return view('pages/' . $pageName, [
+            'top_menu' => $this->topMenu(),
+            'side_menu' => $this->sideMenu(),
+            'simple_menu' => $this->simpleMenu(),
+            'first_page_name' => $activeMenu['first_page_name'],
+            'second_page_name' => $activeMenu['second_page_name'],
+            'third_page_name' => $activeMenu['third_page_name'],
+            'page_name' => $pageName,
+            'theme' => $theme,
+            'layout' => $layout,
+            'name' => 'Ip activities'
         ]);
     }
 

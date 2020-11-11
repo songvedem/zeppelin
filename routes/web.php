@@ -24,7 +24,8 @@ Route::middleware('loggedin')->group(function() {
 
 Route::middleware('auth')->group(function() {
     Route::get('/', [PageController::class, 'loadPage'])->name('dashboard');
-    Route::get('/summary-report', [PageController::class, 'loadSummaryReport'])->name('dashboard');
+    Route::get('/summary-report', [PageController::class, 'loadSummaryReport']);
+    Route::get('/ip-activities', [PageController::class, 'loadIpActivities']);
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('page/{layout}/{theme}/{pageName}', [PageController::class, 'loadPage'])->name('page');
 });

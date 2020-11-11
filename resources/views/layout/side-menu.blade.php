@@ -48,7 +48,7 @@
                 </li>
 
                 <li>
-                    <a href="/"
+                    <a href="/ip-activities"
                        class="side-menu side-menu--active' : 'side-menu'">
                         <div class="side-menu__icon">
 {{--                            <i data-feather="{{ $menu['icon'] }}"></i>--}}
