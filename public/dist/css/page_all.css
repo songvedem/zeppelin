@@ -3,6 +3,7 @@
 /*    width: 100%;*/
 /*}*/
 .frequent-host {
+	width: 135%;
     box-sizing: border-box;
     min-height: 250px;
 }
