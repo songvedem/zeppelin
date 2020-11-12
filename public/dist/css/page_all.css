@@ -3,7 +3,7 @@
 /*    width: 100%;*/
 /*}*/
 .frequent-host {
-	width: 135%;
+	width: 136%;
     box-sizing: border-box;
     min-height: 250px;
 }
@@ -20,4 +20,25 @@
 .user {
     position: absolute !important;
     right: 0;
+}
+.box-frequent-path {
+    width: 85%;
+}
+
+.box-frequent-host {
+    margin-left: 74%;
+    width: 95%;
+}
+.side-nav {
+    width: 160px;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
+#btn-run {
+    margin-left: 40px;
 }

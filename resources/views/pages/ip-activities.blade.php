@@ -41,7 +41,7 @@
     <div class="grid">
         <div class="intro-y block sm:flex items-center h-10">
             <h2 class="text-lg font-medium truncate mr-5">
-                Check IP Requested Paths 
+                Check IP Requested Paths
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
@@ -61,7 +61,7 @@
     </div>
 
     <div class="grid grid-cols-3 gap-4">
-            <div class="grid-cols-2">
+            <div class="grid-cols-2 box-frequent-path">
                 <div class="intro-y block sm:flex items-center h-10">
                     <h2 class="text-lg font-medium truncate mr-5">
                         Top 404 Paths
@@ -71,7 +71,7 @@
                     <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604550933154_1838324234?asIframe" height="350" width="300" ></iframe>
                 </div>
             </div>
-            <div class="grid-cols-8">
+            <div class="grid-cols-8 box-frequent-host">
                 <div class="intro-y block sm:flex items-center h-10">
                     <h2 class="text-lg font-medium truncate mr-5">
                         Top 404 Hosts

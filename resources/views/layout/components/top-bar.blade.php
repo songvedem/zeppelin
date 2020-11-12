@@ -5,6 +5,9 @@
         <a href="" class="">Application</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href="" class="breadcrumb--active">{{$name}}</a>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-run">
+            Rerun Dashboard
+        </button>
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->
@@ -18,53 +21,6 @@
         <a class="notification sm:hidden" href="">
             <i data-feather="search" class="notification__icon dark:text-gray-300"></i>
         </a>
-        <div class="search-result">
-            <div class="search-result__content">
-                <div class="search-result__content__title">Pages</div>
-                <div class="mb-5">
-                    <a href="" class="flex items-center">
-                        <div class="w-8 h-8 bg-theme-18 text-theme-9 flex items-center justify-center rounded-full">
-                            <i class="w-4 h-4" data-feather="inbox"></i>
-                        </div>
-                        <div class="ml-3">Mail Settings</div>
-                    </a>
-                    <a href="" class="flex items-center mt-2">
-                        <div class="w-8 h-8 bg-theme-17 text-theme-11 flex items-center justify-center rounded-full">
-                            <i class="w-4 h-4" data-feather="users"></i>
-                        </div>
-                        <div class="ml-3">Users & Permissions</div>
-                    </a>
-                    <a href="" class="flex items-center mt-2">
-                        <div class="w-8 h-8 bg-theme-14 text-theme-10 flex items-center justify-center rounded-full">
-                            <i class="w-4 h-4" data-feather="credit-card"></i>
-                        </div>
-                        <div class="ml-3">Transactions Report</div>
-                    </a>
-                </div>
-                <div class="search-result__content__title">Users</div>
-                <div class="mb-5">
-                    @foreach (array_slice($fakers, 0, 4) as $faker)
-                        <a href="" class="flex items-center mt-2">
-                            <div class="w-8 h-8 image-fit">
-                                <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('dist/images/' . $faker['photos'][0]) }}">
-                            </div>
-                            <div class="ml-3">{{ $faker['users'][0]['name'] }}</div>
-                            <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">{{ $faker['users'][0]['email'] }}</div>
-                        </a>
-                    @endforeach
-                </div>
-                <div class="search-result__content__title">Products</div>
-                @foreach (array_slice($fakers, 0, 4) as $faker)
-                    <a href="" class="flex items-center mt-2">
-                        <div class="w-8 h-8 image-fit">
-                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('dist/images/' . $faker['images'][0]) }}">
-                        </div>
-                        <div class="ml-3">{{ $faker['products'][0]['name'] }}</div>
-                        <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">{{ $faker['products'][0]['category'] }}</div>
-                    </a>
-                @endforeach
-            </div>
-        </div>
     </div>
 
 
@@ -135,4 +91,43 @@
     </div>
     <!-- END: Account Menu -->
 </div>
+
+@section('script')
+    <script>
+        cash(function () {
+
+            cash('#btn-run').on('click', function() {
+                runAllParagraphs()
+            })
+            async function runAllParagraphs() {
+                Swal.fire({
+                    title: 'WARNING !',
+                    text: "This will take quite a long time, are you sure you want to continue ?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        axios.post(`http://namenode:50070/api/notebook/job/2FN966YVS`)
+                            .then(res => {
+                                Swal.fire(
+                                    'Success!',
+                                    'Run all paragraphs success.',
+                                    'success'
+                                )
+                        }).catch(err => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Something went wrong!',
+                            })
+                        })
+                    }
+                })
+            }
+        })
+    </script>
+@endsection
 <!-- END: Top Bar -->

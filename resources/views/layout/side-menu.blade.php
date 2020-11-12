@@ -54,7 +54,7 @@
 {{--                            <i data-feather="{{ $menu['icon'] }}"></i>--}}
                         </div>
                         <div class="side-menu__title">
-                            IP activities
+                            IP Activities
                             {{--                            @if (isset($menu['sub_menu']))--}}
                             {{--                                <i data-feather="chevron-down" class="side-menu__sub-icon"></i>--}}
                             {{--                            @endif--}}

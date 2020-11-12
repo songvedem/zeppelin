@@ -23,6 +23,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}" />
     <link rel="stylesheet" href="{{ url('/dist/css/page_all.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- END: CSS Assets-->
 </head>
 <!-- END: Head -->
