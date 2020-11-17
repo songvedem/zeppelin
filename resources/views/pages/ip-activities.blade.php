@@ -12,7 +12,7 @@
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
-            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604046405346_1291191690?asIframe" height="600" width="980" ></iframe>
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604046405346_1291191690?asIframe" height="600" width="1050" ></iframe>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
-            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1603248460518_75151105?asIframe" height="600" width="980" ></iframe>
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1603248460518_75151105?asIframe" height="600" width="1050" ></iframe>
         </div>
     </div>
 
@@ -34,7 +34,7 @@
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
-            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604737867569_529935447?asIframe" height="600" width="980" ></iframe>
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604737867569_529935447?asIframe" height="600" width="1050" ></iframe>
         </div>
     </div>
 
@@ -45,7 +45,7 @@
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
-            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604974383108_267316964?asIframe" height="600" width="980" ></iframe>
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604974383108_267316964?asIframe" height="600" width="1050" ></iframe>
         </div>
     </div>
 
@@ -56,7 +56,7 @@
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
-            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604547915103_326324353?asIframe" height="400" width="980" ></iframe>
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604547915103_326324353?asIframe" height="500" width="1050" ></iframe>
         </div>
     </div>
 
@@ -68,7 +68,7 @@
                     </h2>
                 </div>
                 <div class="intro-y box p-5 mt-12 sm:mt-5 frequent-path">
-                    <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604550933154_1838324234?asIframe" height="350" width="300" ></iframe>
+                    <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604550993725_18861810?asIframe" height="350" width="570" ></iframe>       
                 </div>
             </div>
             <div class="grid-cols-8 box-frequent-host">
@@ -78,7 +78,7 @@
                     </h2>
                 </div>
                 <div class="intro-y box p-5 mt-12 sm:mt-5 frequent-host">
-                    <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604550993725_18861810?asIframe" height="350" width="400" ></iframe>
+                    <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604550933154_1838324234?asIframe" height="350" width="420" ></iframe>
                 </div>
             </div>
     </div>

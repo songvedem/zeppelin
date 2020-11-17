@@ -110,20 +110,57 @@
                     confirmButtonText: 'Yes'
                     }).then((result) => {
                     if (result.isConfirmed) {
-                        axios.post(`http://namenode:50070/api/notebook/job/2FN966YVS`)
-                            .then(res => {
-                                Swal.fire(
+
+
+
+                        var request = new XMLHttpRequest()
+
+                            request.open('POST', 'http://namenode:50070/api/notebook/job/2FN966YVS', true)
+                            request.onload = function () {
+                              // Begin accessing JSON data here
+                              var data = JSON.parse(this.response)
+
+                              console.log(request)
+
+                              if (request.status == 200 ) {
+                                 Swal.fire(
                                     'Success!',
                                     'Run all paragraphs success.',
                                     'success'
                                 )
-                        }).catch(err => {
+                              } else if(request.status == 417){
+                               Swal.fire({
+                                icon: 'error',
+                                title: 'EXPECTATION_FAILED',
+                                text: 'Unable to run note:2FN966YVS because it is still in RUNNING state.!',
+                            }) 
+                              } else {
+
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Error',
                                 text: 'Something went wrong!',
                             })
-                        })
+
+                              }
+                            }
+
+                            request.send()
+
+                        // axios.post('http://namenode:50070/api/notebook/job/2FN966YVS')
+                        //     .then(res => {
+                        //         Swal.fire(
+                        //             'Success!',
+                        //             'Run all paragraphs success.',
+                        //             'success'
+                        //         )
+                        // }).catch(err => {
+                        //     Swal.fire({
+                        //         icon: 'error',
+                        //         title: 'Error',
+                        //         text: 'Something went wrong!',
+                        //     })
+                        // })
                     }
                 })
             }
