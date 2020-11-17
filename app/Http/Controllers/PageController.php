@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DetectionThresholdupdated;
+use App\Models\DetectionThreshold;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -60,6 +63,50 @@ class PageController extends Controller
             'layout' => $layout,
             'name' => 'Ip Activities'
         ]);
+    }
+
+    public function loadAnomaliesDetection($layout = 'side-menu', $theme = 'light', $pageName = 'anomalies-detection')
+    {
+        $activeMenu = $this->activeMenu($layout, $pageName);
+        return view('pages/' . $pageName, [
+            'top_menu' => $this->topMenu(),
+            'side_menu' => $this->sideMenu(),
+            'simple_menu' => $this->simpleMenu(),
+            'first_page_name' => $activeMenu['first_page_name'],
+            'second_page_name' => $activeMenu['second_page_name'],
+            'third_page_name' => $activeMenu['third_page_name'],
+            'page_name' => $pageName,
+            'theme' => $theme,
+            'layout' => $layout,
+            'name' => 'Anomalies detection'
+        ]);
+    }
+
+    public function editDetectionThreshold($layout = 'side-menu', $theme = 'light', $pageName = 'detection-threshold')
+    {
+        $activeMenu = $this->activeMenu($layout, $pageName);
+        $detectionThreshold = DetectionThreshold::first();
+
+        return view('pages/' . $pageName, [
+            'top_menu' => $this->topMenu(),
+            'side_menu' => $this->sideMenu(),
+            'simple_menu' => $this->simpleMenu(),
+            'first_page_name' => $activeMenu['first_page_name'],
+            'second_page_name' => $activeMenu['second_page_name'],
+            'third_page_name' => $activeMenu['third_page_name'],
+            'page_name' => $pageName,
+            'theme' => $theme,
+            'layout' => $layout,
+            'name' => 'Detection Threshold',
+            'detectionThreshold' => $detectionThreshold
+        ]);
+    }
+
+    public function updateDetectionThreshold(DetectionThresholdupdated $request, $id)
+    {
+        $detectionThreshold = DetectionThreshold::find($id)->update($request->all());
+
+        return redirect()->route('detection-threshold.edit')->with('status', 'Update success, press return dashboard to apply');
     }
 
     /**

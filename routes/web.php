@@ -26,7 +26,10 @@ Route::middleware('auth')->group(function() {
     Route::get('/', [PageController::class, 'loadPage'])->name('dashboard');
     Route::get('/summary-report', [PageController::class, 'loadSummaryReport']);
     Route::get('/ip-activities', [PageController::class, 'loadIpActivities']);
+    Route::get('/anomalies-detection', [PageController::class, 'loadAnomaliesDetection']);
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('page/{layout}/{theme}/{pageName}', [PageController::class, 'loadPage'])->name('page');
+    Route::get('/detection-threshold', [PageController::class, 'editDetectionThreshold'])->name('detection-threshold.edit');
+    Route::post('/detection-threshold/{id}', [PageController::class, 'updateDetectionThreshold'])->name('detection-threshold.update');
 });
 
