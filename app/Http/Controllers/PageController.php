@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MyEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DetectionThresholdupdated;
+use App\Models\BandwidthHost;
 use App\Models\DetectionThreshold;
+use App\Models\SuspiciousHost;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -105,7 +108,6 @@ class PageController extends Controller
     public function updateDetectionThreshold(DetectionThresholdupdated $request, $id)
     {
         $detectionThreshold = DetectionThreshold::find($id)->update($request->all());
-
         return redirect()->route('detection-threshold.edit')->with('status', 'Update success, press return dashboard to apply');
     }
 

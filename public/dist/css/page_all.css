@@ -19,7 +19,7 @@
 }
 .user {
     position: absolute !important;
-    right: 0;
+    right: 85px;
 }
 .box-frequent-path {
     width: 85%;
@@ -38,7 +38,23 @@ h2 {
     font-weight: bold !important;
     font-size: 20px !important;
 }
+.number_noti {
+    left: 20px;
+    border: 1px solid red;
+    border-radius: 50%;
+    position: absolute;
+    top: -13px;
+    background-color: red;
+    color: white;
+}
 
 #btn-run {
     margin-left: 40px;
+}
+.notification-content__box {
+    overflow: auto;
+    max-height: 401px;
+}
+.notification_drop {
+    width: 100%;
 }
