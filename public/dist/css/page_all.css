@@ -58,3 +58,6 @@ h2 {
 .notification_drop {
     width: 100%;
 }
+.notification_drop :hover {
+    background-color: #e2e8f0;
+}

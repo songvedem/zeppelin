@@ -2,7 +2,7 @@
 <div class="top-bar" style="position: relative">
     <!-- BEGIN: Breadcrumb -->
     <div class="-intro-x breadcrumb  hidden sm:flex">
-        <a href="" class="">Application</a>
+        <a href="" class="" >Application</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href="" class="breadcrumb--active">{{$name}}</a>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-run">
@@ -97,6 +97,28 @@
 @section('script')
     <script>
         cash(function () {
+
+            var request = new XMLHttpRequest()
+
+            request.open('GET', '/api/notifications', true)
+            request.onload = function () {
+                // Begin accessing JSON data here
+                var data = JSON.parse(this.response)
+
+                if (request.status === 200 ) {
+                    $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.count}</span>`)
+
+                    if (data.data.length) {
+                        $('.notification_drop').html(`<div></div>`)
+                        data.data.forEach(content => {
+                            $('.notification_drop').append(`<div class="flex items-center">
+                                <div class="font-medium truncate mr-5 ${content.id}" style="padding: 10px 0" value="1"><a href="/notifications/${content.id}">${content.content}</a></div></div>`)
+                        })
+                    }
+                }
+            }
+            request.send()
+
             Pusher.logToConsole = true;
 
             var pusher = new Pusher('97818d7aa99e7cca1f0f', {
@@ -106,20 +128,18 @@
 
             var channel = pusher.subscribe('my-channel');
             channel.bind('my-event', function(data) {
-
                 $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.data['count']}</span>`)
-
-                if (data.data['data'].length) {
+                console.log(data.data.data)
+                if (data.data.data.length) {
                     $('.notification_drop').html(`<div></div>`)
-                    data.data['data'].forEach(content => {
+                    data.data.data.forEach(content => {
+                        console.log(content)
                         $('.notification_drop').append(`<div class="flex items-center">
-                                <div class="font-medium truncate mr-5" style="padding: 10px 0">${content}</div>
-                            </div>`)
+                                <div class="font-medium truncate mr-5 ${content.id}" style="padding: 10px 0" value="1"><a href="/notifications/${content.id}">${content.content}</a></div></div>`)
                     })
                 }
 
             });
-
             cash('#btn-run').on('click', function() {
                 runAllParagraphs()
             })

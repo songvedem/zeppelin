@@ -31,5 +31,7 @@ Route::middleware('auth')->group(function() {
     Route::get('page/{layout}/{theme}/{pageName}', [PageController::class, 'loadPage'])->name('page');
     Route::get('/detection-threshold', [PageController::class, 'editDetectionThreshold'])->name('detection-threshold.edit');
     Route::post('/detection-threshold/{id}', [PageController::class, 'updateDetectionThreshold'])->name('detection-threshold.update');
+    Route::get("/notifications/{id}" , "App\Http\Controllers\Api\ApiNotificationController@update") ;
+
 });
 
