@@ -61,3 +61,6 @@ h2 {
 .notification_drop :hover {
     background-color: #e2e8f0;
 }
+.read {
+    color: #b9babc;
+}

@@ -11,12 +11,12 @@ class ApiNotificationController extends Controller
 {
     public function index()
     {
-        $notifications = Notification::where('status', Notification::IN_READ)->orderByDesc('id')->get();
+        $notifications = Notification::orderByDesc('id')->get();
 
         return [
             "status" => 200,
             "data" => NotificationResource::collection($notifications),
-            "count" => $notifications->count()
+            "count" => $notifications->where('status', Notification::IN_READ)->count()
         ];
     }
 

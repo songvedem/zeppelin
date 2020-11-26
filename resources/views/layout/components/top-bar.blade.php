@@ -96,14 +96,28 @@
 
 @section('script')
     <script>
-        cash(function () {
-
+        cash(async function () {
+            const READ = 1
+            const IN_READ = 0
             var request = new XMLHttpRequest()
+            var requestFinish = new XMLHttpRequest()
+            // lấy update finish
+             requestFinish.open('GET', 'http://namenode:50070/api/notebook/job/2FN966YVS/paragraph_1605006489651_1517903191', true)
+             requestFinish.onload = function () {
+                console.log(1)
+                // Begin accessing JSON data here
+                var data = JSON.parse(this.response)
 
+                if (requestFinish.status === 200 ) {
+                    $('.breadcrumb').append(`<p class="bg-green-500 text-white font-bold py-2 px-4 rounded last_update" style="margin-left: 10px"><span>${data.data.body.finished}</span></p>`)
+                }
+            }
+            requestFinish.send()
+            // lấy các notification
             request.open('GET', '/api/notifications', true)
             request.onload = function () {
                 // Begin accessing JSON data here
-                var data = JSON.parse(this.response)
+                let data = JSON.parse(this.response)
 
                 if (request.status === 200 ) {
                     $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.count}</span>`)
@@ -112,7 +126,7 @@
                         $('.notification_drop').html(`<div></div>`)
                         data.data.forEach(content => {
                             $('.notification_drop').append(`<div class="flex items-center">
-                                <div class="font-medium truncate mr-5 ${content.id}" style="padding: 10px 0" value="1"><a href="/notifications/${content.id}">${content.content}</a></div></div>`)
+                                <div class="font-medium mr-5 ${content.id}" style="padding: 10px 0" value="1"><a class="${content.status === READ ? 'read' : ''}" href="/notifications/${content.id}">${content.updated_at}: ${content.content}</a></div></div>`)
                         })
                     }
                 }

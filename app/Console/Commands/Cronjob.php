@@ -43,9 +43,9 @@ class Cronjob extends Command
      */
     public function handle()
     {
-//        BandwidthHost::create([
-//            "host" => 1
-//        ]);
+        BandwidthHost::create([
+            "host" => 1
+        ]);
          $bandwidthHosts = BandwidthHost::whereBetween('created_at', [now()->subMinutes(1), now()])->get();
 
         $suspiciousHosts = SuspiciousHost::whereBetween('created_at', [now()->subMinutes(1), now()])->get();
@@ -59,7 +59,7 @@ class Cronjob extends Command
 
         while ($numberBandwidthHosts >= 1) {
             $notify = Notification::create([
-                "content" => "There are 27 new bandwidth records in the {$timeInterval} second",
+                "content" => "Bandwidth alert",
                 "status" => Notification::IN_READ
             ]);
             $numberBandwidthHosts = $numberBandwidthHosts/27;
@@ -67,14 +67,14 @@ class Cronjob extends Command
 
         while ($numberSuspiciousHosts >= 1) {
             $notify = Notification::create([
-                "content" => "There are 27 new suspicious records in the {$timeInterval} second",
+                "content" => "Status alert",
                 "status" => Notification::IN_READ
             ]);
             $numberSuspiciousHosts = $numberSuspiciousHosts/27;
         }
         $data = [];
 
-        $notifications = Notification::where('status', Notification::IN_READ)->orderByDesc('id')->get();
+        $notifications = Notification::orderByDesc('id')->get();
         $data["count"] = $notifications->count();
         $data['data'] = $notifications->toArray();
         event(new MyEvent($data));

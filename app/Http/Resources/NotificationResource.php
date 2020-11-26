@@ -18,6 +18,7 @@ class NotificationResource extends JsonResource
             "id" => $this->id,
             "content" => $this->content,
             "status" => $this->status,
+            'updated_at' => date_format($this->updated_at,"Y-d H:i:s")
         ];
     }
 }
