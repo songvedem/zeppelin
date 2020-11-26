@@ -43,9 +43,9 @@ class Cronjob extends Command
      */
     public function handle()
     {
-        BandwidthHost::create([
-            "host" => 1
-        ]);
+        // BandwidthHost::create([
+        //     "host" => 1
+        // ]);
          $bandwidthHosts = BandwidthHost::whereBetween('created_at', [now()->subMinutes(1), now()])->get();
 
         $suspiciousHosts = SuspiciousHost::whereBetween('created_at', [now()->subMinutes(1), now()])->get();
@@ -77,7 +77,11 @@ class Cronjob extends Command
         $notifications = Notification::orderByDesc('id')->get();
         $data["count"] = $notifications->count();
         $data['data'] = $notifications->toArray();
-        event(new MyEvent($data));
+
+        if (count( $notifications->toArray())) {
+             event(new MyEvent($data));
+        }
+    
         return 1;
     }
 }
