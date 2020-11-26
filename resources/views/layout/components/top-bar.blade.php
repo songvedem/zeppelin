@@ -128,16 +128,19 @@
 
             var channel = pusher.subscribe('my-channel');
             channel.bind('my-event', function(data) {
-                $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.data['count']}</span>`)
-                console.log(data.data.data)
-                if (data.data.data.length) {
-                    $('.notification_drop').html(`<div></div>`)
-                    data.data.data.forEach(content => {
-                        console.log(content)
-                        $('.notification_drop').append(`<div class="flex items-center">
-                                <div class="font-medium truncate mr-5 ${content.id}" style="padding: 10px 0" value="1"><a href="/notifications/${content.id}">${content.content}</a></div></div>`)
-                    })
-                }
+                // $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.data['count']}</span>`)
+                // console.log(data.data.data)
+                // if (data.data.data.length) {
+                //     $('.notification_drop').html(`<div></div>`)
+                //     data.data.data.forEach(content => {
+                //         console.log(content)
+                //         $('.notification_drop').append(`<div class="flex items-center">
+                //                 <div class="font-medium truncate mr-5 ${content.id}" style="padding: 10px 0" value="1"><a href="/notifications/${content.id}">${content.content}</a></div></div>`)
+                //     })
+                // }
+
+                location.reload();
+                return true;
 
             });
             cash('#btn-run').on('click', function() {

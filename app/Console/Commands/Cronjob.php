@@ -43,23 +43,34 @@ class Cronjob extends Command
      */
     public function handle()
     {
+//        BandwidthHost::create([
+//            "host" => 1
+//        ]);
          $bandwidthHosts = BandwidthHost::whereBetween('created_at', [now()->subMinutes(1), now()])->get();
 
         $suspiciousHosts = SuspiciousHost::whereBetween('created_at', [now()->subMinutes(1), now()])->get();
 
-        foreach ($bandwidthHosts as $bandwidthHost) {
+        $detectionThreshold = DetectionThreshold::first();
+        $timeInterval = $detectionThreshold->time_interval;
+
+        $numberBandwidthHosts = count($bandwidthHosts);
+        $numberSuspiciousHosts = count($suspiciousHosts);
+
+
+        while ($numberBandwidthHosts >= 1) {
             $notify = Notification::create([
-                "content" => "Found bandwidth hosts from {$bandwidthHost->start_time} to {$bandwidthHost->end_time}",
+                "content" => "There are 27 new bandwidth records in the {$timeInterval} second",
                 "status" => Notification::IN_READ
             ]);
+            $numberBandwidthHosts = $numberBandwidthHosts/27;
         }
 
-        foreach ($suspiciousHosts as $suspiciousHost) {
+        while ($numberSuspiciousHosts >= 1) {
             $notify = Notification::create([
-                "content" => "Found suspicious hosts from {$suspiciousHost->start_time} to {$suspiciousHost->end_time}",
+                "content" => "There are 27 new suspicious records in the {$timeInterval} second",
                 "status" => Notification::IN_READ
             ]);
-
+            $numberSuspiciousHosts = $numberSuspiciousHosts/27;
         }
         $data = [];
 
