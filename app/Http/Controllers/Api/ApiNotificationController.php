@@ -28,6 +28,6 @@ class ApiNotificationController extends Controller
             $notification->save();
         }
 
-        return redirect('/');
+        return redirect('/anomalies-detection');
     }
 }
