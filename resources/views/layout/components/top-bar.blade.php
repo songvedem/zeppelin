@@ -188,7 +188,7 @@
             async function runAllParagraphs() {
                 Swal.fire({
                     title: 'WARNING !',
-                    text: "This will take quite a long time, are you sure you want to continue ?",
+                    text: "This will take a bit of time, and you can't interact with data until the process is finished. Are you sure you want to continue ?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -211,7 +211,7 @@
                               if (request.status == 200 ) {
                                  Swal.fire(
                                     'Success!',
-                                    'Run all paragraphs success.',
+                                    'Start success, wait for Last Updated value to change.',
                                     'success'
                                 )
                               } else if(request.status == 417){
