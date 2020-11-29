@@ -43,47 +43,46 @@ class Cronjob extends Command
      */
     public function handle()
     {
-         BandwidthHost::create([
-             "host" => 1
-         ]);
-        BandwidthHost::create([
-            "host" => 1
-        ]);
+        //  BandwidthHost::create([
+        //      "host" => 1
+        //  ]);
+        // BandwidthHost::create([
+        //     "host" => 1
+        // ]);
 
-         $bandwidthHosts = BandwidthHost::whereBetween('created_at', [now()->subMinutes(1), now()])->get();
+         $bandwidthHosts = BandwidthHost::whereBetween('created_at', [now()->subMinutes(1.5), now()])->get()->unique("created_at");
 
-        $suspiciousHosts = SuspiciousHost::whereBetween('created_at', [now()->subMinutes(1), now()])->get();
+        $suspiciousHosts = SuspiciousHost::whereBetween('created_at', [now()->subMinutes(1.5), now()])->get()->unique("created_at");
 
         $detectionThreshold = DetectionThreshold::first();
         $timeInterval = $detectionThreshold->time_interval;
 
-        $numberBandwidthHosts = count($bandwidthHosts);
-        $numberSuspiciousHosts = count($suspiciousHosts);
+        // $numberBandwidthHosts = count($bandwidthHosts);
+        // dd(count($bandwidthHosts));
+        // $numberSuspiciousHosts = count($suspiciousHosts);
 
 
-        foreach ($bandwidthHosts as $bandwidthHost) {
+        foreach ($bandwidthHosts as &$bandwidthHost) {
             $notify = Notification::create([
                 "content" => "Bandwidth alert",
                 "status" => Notification::IN_READ
             ]);
         }
 
-        foreach ($suspiciousHosts as $suspiciousHost) {
+        foreach ($suspiciousHosts as &$suspiciousHost) {
             $notify = Notification::create([
                 "content" => "Status alert",
                 "status" => Notification::IN_READ
             ]);
         }
+        
 
-
-        $notifications = Notification::orderByDesc('id')->get();
-        $data["count"] = $notifications->count();
-        $data['data'] = $notifications->toArray();
+        // $notifications = Notification::orderByDesc('id')->get();
+        // $data["count"] = $notifications->count();
+        // $data['data'] = $notifications->toArray();
 
 //        if (count( $notifications->toArray())) {
 //             event(new MyEvent($data));
 //        }
-
-        return 1;
     }
 }
