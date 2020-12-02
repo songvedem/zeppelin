@@ -28,31 +28,31 @@
     <!-- BEGIN: Notifications -->
 
     <div class="intro-x dropdown mr-auto sm:mr-6">
-        <div class="dropdown-toggle notification cursor-pointer">
-            <div class="number_noti">
-                <b><span style="margin:6px 6px">0</span></b>
-            </div>
-            <i data-feather="bell" class="notification__icon dark:text-gray-300"></i>
-        </div>
-        <div class="notification-content pt-2 dropdown-box">
-            <div class="notification-content__box dropdown-box__content box dark:bg-dark-6">
-                <div class="notification-content__title"><a href="/anomalies-detection" style="color: #1C3FAA">View detail</a></div>
+{{--        <div class="dropdown-toggle notification cursor-pointer">--}}
+{{--            <div class="number_noti">--}}
+{{--                <b><span style="margin:6px 6px">0</span></b>--}}
+{{--            </div>--}}
+{{--            <i data-feather="bell" class="notification__icon dark:text-gray-300"></i>--}}
+{{--        </div>--}}
+{{--        <div class="notification-content pt-2 dropdown-box">--}}
+{{--            <div class="notification-content__box dropdown-box__content box dark:bg-dark-6">--}}
+{{--                <div class="notification-content__title"><a href="/anomalies-detection" style="color: #1C3FAA">View detail</a></div>--}}
 
-                    <div class="cursor-pointer relative flex items-center mt-5">
+{{--                    <div class="cursor-pointer relative flex items-center mt-5">--}}
 {{--                        <div class="w-12 h-12 flex-none image-fit mr-1">--}}
 {{--                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('dist/images/' . $faker['photos'][0]) }}">--}}
 {{--                            <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>--}}
 {{--                        </div>--}}
-                        <div class="ml-2 overflow-hidden notification_drop divide-y">
+{{--                        <div class="ml-2 overflow-hidden notification_drop divide-y">--}}
 
 
 
 {{--                            <div class="w-full truncate text-gray-600">table changed</div>--}}
-                        </div>
-                    </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-            </div>
-        </div>
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 
 
@@ -116,72 +116,72 @@
 
             requestFinish.send()
             // lấy các notification
-            request.open('GET', '/api/notifications', true)
-            request.onload = function () {
-                // Begin accessing JSON data here
-                let data = JSON.parse(this.response)
+            // request.open('GET', '/api/notifications', true)
+            // request.onload = function () {
+            //     // Begin accessing JSON data here
+            //     let data = JSON.parse(this.response)
+            //
+            //     if (request.status === 200 ) {
+            //         $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.count}</span>`)
+            //
+            //         if (data.data.length) {
+            //             $('.notification_drop').html(`<div></div>`)
+            //             data.data.forEach(content => {
+            //                 $('.notification_drop').append(`<div class="flex items-center">
+            //                     <div class="font-medium mr-5 ${content.id}" style="padding: 10px 0" value="1"><a class="${content.status === READ ? 'read' : ''}" href="/notifications/${content.id}">${content.updated_at}: ${content.content}</a></div></div>`)
+            //             })
+            //         }
+            //     }
+            // }
+            // request.send()
 
-                if (request.status === 200 ) {
-                    $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.count}</span>`)
+            // setInterval(function(){
+            //     var request = new XMLHttpRequest()
+            //     request.open('GET', '/api/notifications', true)
+            //     request.onload = function () {
+            //     // Begin accessing JSON data here
+            //     let data = JSON.parse(this.response)
+            //
+            //     if (request.status === 200 ) {
+            //         $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.count}</span>`)
+            //
+            //         if (data.data.length) {
+            //             $('.notification_drop').html(`<div></div>`)
+            //             data.data.forEach(content => {
+            //                 $('.notification_drop').append(`<div class="flex items-center">
+            //                     <div class="font-medium mr-5 ${content.id}" style="padding: 10px 0" value="1"><a class="${content.status === READ ? 'read' : ''}" href="/notifications/${content.id}">${content.updated_at}: ${content.content}</a></div></div>`)
+            //             })
+            //         }
+            //     }
+            // }
+            // request.send()
+            //
+            //  }, 10000);
 
-                    if (data.data.length) {
-                        $('.notification_drop').html(`<div></div>`)
-                        data.data.forEach(content => {
-                            $('.notification_drop').append(`<div class="flex items-center">
-                                <div class="font-medium mr-5 ${content.id}" style="padding: 10px 0" value="1"><a class="${content.status === READ ? 'read' : ''}" href="/notifications/${content.id}">${content.updated_at}: ${content.content}</a></div></div>`)
-                        })
-                    }
-                }
-            }
-            request.send()
+            // Pusher.logToConsole = true;
 
-            setInterval(function(){
-                var request = new XMLHttpRequest()
-                request.open('GET', '/api/notifications', true)
-                request.onload = function () {
-                // Begin accessing JSON data here
-                let data = JSON.parse(this.response)
+            // var pusher = new Pusher('97818d7aa99e7cca1f0f', {
+            //     cluster: 'ap1',
+            //     'useTLS' : true
+            // });
 
-                if (request.status === 200 ) {
-                    $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.count}</span>`)
-
-                    if (data.data.length) {
-                        $('.notification_drop').html(`<div></div>`)
-                        data.data.forEach(content => {
-                            $('.notification_drop').append(`<div class="flex items-center">
-                                <div class="font-medium mr-5 ${content.id}" style="padding: 10px 0" value="1"><a class="${content.status === READ ? 'read' : ''}" href="/notifications/${content.id}">${content.updated_at}: ${content.content}</a></div></div>`)
-                        })
-                    }
-                }
-            }
-            request.send()
-
-             }, 10000);
-
-            Pusher.logToConsole = true;
-
-            var pusher = new Pusher('97818d7aa99e7cca1f0f', {
-                cluster: 'ap1',
-                'useTLS' : true
-            });
-
-            var channel = pusher.subscribe('my-channel');
-            channel.bind('my-event', function(data) {
-                // $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.data['count']}</span>`)
-                // console.log(data.data.data)
-                // if (data.data.data.length) {
-                //     $('.notification_drop').html(`<div></div>`)
-                //     data.data.data.forEach(content => {
-                //         console.log(content)
-                //         $('.notification_drop').append(`<div class="flex items-center">
-                //                 <div class="font-medium truncate mr-5 ${content.id}" style="padding: 10px 0" value="1"><a href="/notifications/${content.id}">${content.content}</a></div></div>`)
-                //     })
-                // }
-
-                location.reload();
-                return true;
-
-            });
+            // var channel = pusher.subscribe('my-channel');
+            // channel.bind('my-event', function(data) {
+            //     // $('.number_noti').html(`<b><span style="margin: 6px 6px">${data.data['count']}</span>`)
+            //     // console.log(data.data.data)
+            //     // if (data.data.data.length) {
+            //     //     $('.notification_drop').html(`<div></div>`)
+            //     //     data.data.data.forEach(content => {
+            //     //         console.log(content)
+            //     //         $('.notification_drop').append(`<div class="flex items-center">
+            //     //                 <div class="font-medium truncate mr-5 ${content.id}" style="padding: 10px 0" value="1"><a href="/notifications/${content.id}">${content.content}</a></div></div>`)
+            //     //     })
+            //     // }
+            //
+            //     location.reload();
+            //     return true;
+            //
+            // });
             cash('#btn-run').on('click', function() {
                 runAllParagraphs()
             })
