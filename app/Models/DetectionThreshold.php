@@ -14,6 +14,9 @@ class DetectionThreshold extends Model
         'bandwidth',
         'status',
         'status_frequency',
+        "path",
+        "path_frequency",
+        "host_frequency",
     ];
 
 //    protected $casts = [

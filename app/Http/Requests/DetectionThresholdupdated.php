@@ -29,6 +29,9 @@ class DetectionThresholdupdated extends FormRequest
             'bandwidth' => 'required|int|min:0',
             'status' => 'required' ,
             'status_frequency' => 'required|int|min:0',
+            "path" => 'required' ,
+            "path_frequency" => 'required|int|min:0',
+            "host_frequency" => 'required|int|min:0',
         ];
     }
 }
