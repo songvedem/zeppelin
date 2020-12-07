@@ -64,7 +64,7 @@ class PageController extends Controller
             'page_name' => $pageName,
             'theme' => $theme,
             'layout' => $layout,
-            'name' => 'Ip Activities'
+            'name' => 'IP Activities'
         ]);
     }
 
