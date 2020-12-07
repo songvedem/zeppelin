@@ -50,4 +50,16 @@
         </div>
     </div>
 
+    
+    <div class="grid">
+        <div class="intro-y block sm:flex items-center h-10">
+            <h2 class="text-lg font-medium truncate mr-5">
+                Top 20 Requests With Most Traffic
+            </h2>
+        </div>
+        <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1604546145013_1356562621?asIframe" height="420" width="1000" ></iframe>
+        </div>
+    </div>
+
 @endsection
