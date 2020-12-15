@@ -8,6 +8,16 @@
     <div class="grid">
         <div class="intro-y block sm:flex items-center h-10">
             <h2 class="text-lg font-medium truncate mr-5">
+                Threshold Check
+        </div>
+        <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1607564564944_1362464756?asIframe" height="700" width="1000" ></iframe>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="intro-y block sm:flex items-center h-10">
+            <h2 class="text-lg font-medium truncate mr-5">
                 Paths Surpassed Access Threshold Amount
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">

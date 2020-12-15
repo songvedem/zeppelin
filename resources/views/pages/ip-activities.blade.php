@@ -12,7 +12,7 @@
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
-            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1606895037904_1915352090?asIframe" height="600" width="1000" ></iframe>
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1606895037904_1915352090?asIframe" height="900" width="1000" ></iframe>
         </div>
     </div>
 

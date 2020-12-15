@@ -9,7 +9,17 @@
     <div class="grid">
         <div class="intro-y block sm:flex items-center h-10">
             <h2 class="text-lg font-medium truncate mr-5">
-                Requests By Hour
+                Choose Your Timeframe (Format: YYYY-MM-DD HH:MM:SS)
+            </h2>
+        </div>
+        <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
+            <iframe src="http://namenode:50070/#/notebook/2FN966YVS/paragraph/paragraph_1608033845284_2081161116?asIframe" height="200" width="1000" ></iframe>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="intro-y block sm:flex items-center h-10">
+            <h2 class="text-lg font-medium truncate mr-5">
+                Requests By Time
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
@@ -20,7 +30,7 @@
     <div class="grid">
         <div class="intro-y block sm:flex items-center h-10">
             <h2 class="text-lg font-medium truncate mr-5">
-                Statuses By Hour
+                Statuses By Time
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
@@ -31,7 +41,7 @@
     <div class="grid">
         <div class="intro-y block sm:flex items-center h-10">
             <h2 class="text-lg font-medium truncate mr-5">
-                Traffic By Hour
+                Traffic By Time
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system">
