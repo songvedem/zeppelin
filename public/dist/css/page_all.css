@@ -64,3 +64,10 @@ h2 {
 .read {
     color: #b9babc;
 }
+body {
+     background-color: #2A56AA !important;
+}
+.side-nav .side-menu {
+    color: #ffffff !important;
+    font-size: 15px !important;
+}

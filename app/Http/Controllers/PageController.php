@@ -8,6 +8,8 @@ use App\Http\Requests\DetectionThresholdupdated;
 use App\Models\BandwidthHost;
 use App\Models\DetectionThreshold;
 use App\Models\SuspiciousHost;
+use App\Models\TimeIpActivities;
+use App\Models\TimeSummary;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -38,6 +40,7 @@ class PageController extends Controller
 
     public function loadSummaryReport($layout = 'side-menu', $theme = 'light', $pageName = 'summary-report') {
         $activeMenu = $this->activeMenu($layout, $pageName);
+        $time = TimeSummary::first();
         return view('pages/' . $pageName, [
             'top_menu' => $this->topMenu(),
             'side_menu' => $this->sideMenu(),
@@ -48,12 +51,29 @@ class PageController extends Controller
             'page_name' => $pageName,
             'theme' => $theme,
             'layout' => $layout,
-            'name' => 'Summary Report'
+            'name' => 'Summary Report',
+            'start_time' => $time && $time->start_time ? date("Y-m-d\TH:i:s", strtotime($time->start_time)) : date("Y-m-d\TH:i:s"),
+            'end_time' => $time && $time->start_time ? date("Y-m-d\TH:i:s", strtotime($time->end_time)) : date("Y-m-d\TH:i:s")
         ]);
     }
 
+    public function createTimeSummary(Request $request)
+    {
+        $input = $request->only(['start_time', 'end_time']);
+        TimeSummary::truncate();
+        $time = TimeSummary::create($input);
+        return redirect('/summary-report');
+    }
+    public function createTimeIpActivities(Request $request)
+    {
+        $input = $request->only(['start_time', 'end_time']);
+        TimeIpActivities::truncate();
+        $time = TimeIpActivities::create($input);
+        return redirect('/ip-activities');
+    }
     public function loadIpActivities($layout = 'side-menu', $theme = 'light', $pageName = 'ip-activities') {
         $activeMenu = $this->activeMenu($layout, $pageName);
+        $time = TimeIpActivities::first();
         return view('pages/' . $pageName, [
             'top_menu' => $this->topMenu(),
             'side_menu' => $this->sideMenu(),
@@ -64,7 +84,9 @@ class PageController extends Controller
             'page_name' => $pageName,
             'theme' => $theme,
             'layout' => $layout,
-            'name' => 'IP Activities'
+            'name' => 'IP Activities',
+            'start_time' => $time && $time->start_time ? date("Y-m-d\TH:i:s", strtotime($time->start_time)) : date("Y-m-d\TH:i:s"),
+            'end_time' => $time && $time->start_time ? date("Y-m-d\TH:i:s", strtotime($time->end_time)) : date("Y-m-d\TH:i:s")
         ]);
     }
 

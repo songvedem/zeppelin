@@ -29,17 +29,18 @@
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system" style="height: 400px">
-            <form class="form-group">
+            <form class="form-group" action="{{route('time-summary.store')}}" method="post">
+                @csrf
             <div class="form-group row">
                 <h4 class="col-md-1 col-form-label">Start time</h4>
                 <div class="col-md-4">
-                    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
-                           id="example-datetime-local-input">
+                    <input class="form-control" type="datetime-local" value="{{$start_time}}"
+                           id="example-datetime-local-input" name="start_time">
                 </div>
                 <h4 class="col-md-1 col-form-label">End time</h4>
                 <div class="col-md-4">
-                    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
-                           id="example-datetime-local-input">
+                    <input class="form-control" type="datetime-local" value="{{$end_time}}"
+                           id="example-datetime-local-input" name="end_time">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Apply</button>

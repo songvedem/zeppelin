@@ -29,9 +29,10 @@ Route::middleware('auth')->group(function() {
     Route::get('/anomalies-detection', [PageController::class, 'loadAnomaliesDetection']);
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('page/{layout}/{theme}/{pageName}', [PageController::class, 'loadPage'])->name('page');
+    Route::post('page/time-summary', [PageController::class, 'createTimeSummary'])->name('time-summary.store');
+    Route::post('page/time-ip-activities', [PageController::class, 'createTimeIpActivities'])->name('time-ip-activities.store');
     Route::get('/detection-threshold', [PageController::class, 'editDetectionThreshold'])->name('detection-threshold.edit');
     Route::post('/detection-threshold/{id}', [PageController::class, 'updateDetectionThreshold'])->name('detection-threshold.update');
     Route::get("/notifications/{id}" , "App\Http\Controllers\Api\ApiNotificationController@update") ;
-
 });
 

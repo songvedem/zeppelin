@@ -1,11 +1,11 @@
 <!-- BEGIN: Top Bar -->
 <div class="top-bar" style="position: relative">
     <!-- BEGIN: Breadcrumb -->
-    <div class="-intro-x breadcrumb  hidden sm:flex">
-        <a href="" class="" >Application</a>
+    <div class="-intro-x breadcrumb sm:flex">
+        <a href="" class="" style="font-size: 13px">Application</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-        <a href="" class="breadcrumb--active">{{$name}}</a>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-run">
+        <a href="" class="breadcrumb--active" style="font-size: 14px">{{$name}}</a>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-run" style="font-size: 14px">
             Rerun Dashboard
         </button>
     </div>
@@ -60,7 +60,7 @@
     <!-- BEGIN: Account Menu -->
     <div class="intro-x dropdown w-8 h-8">
         <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" style="width: 8rem; text-align: center; padding-top: 3px">
-            <p>{{ \Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->name : ""}}</p>
+            <p style="font-size: 13px">{{ \Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->name : ""}}</p>
         </div>
         <div class="dropdown-box w-56">
             <div class="dropdown-box__content box bg-theme-38 dark:bg-dark-6 text-white">
@@ -69,21 +69,21 @@
                     <div class="text-xs text-theme-41 dark:text-gray-600">{{ $fakers[0]['jobs'][0] }}</div>
                 </div>
                 <div class="p-2">
-                    <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                    <a style="font-size: 13px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile
                     </a>
-                    <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                    <a style="font-size: 13px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="edit" class="w-4 h-4 mr-2"></i> Add Account
                     </a>
-                    <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                    <a style="font-size: 13px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="lock" class="w-4 h-4 mr-2"></i> Reset Password
                     </a>
-                    <a href="/detection-threshold" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                    <a style="font-size: 13px" href="/detection-threshold" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Detection Threshold
                     </a>
                 </div>
                 <div class="p-2 border-t border-theme-40 dark:border-dark-3">
-                    <a href="{{ route('logout') }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                    <a style="font-size: 13px" href="{{ route('logout') }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout
                     </a>
                 </div>
