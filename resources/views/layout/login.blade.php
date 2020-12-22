@@ -1,7 +1,7 @@
 @extends('../layout/base')
 
 @section('body')
-    <body class="login">
+    <body class="login" style="background-color: #fff !important;">
         @yield('content')
         @include('../layout/components/dark-mode-switcher')
 

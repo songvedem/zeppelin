@@ -62,14 +62,14 @@ class PageController extends Controller
         $input = $request->only(['start_time', 'end_time']);
         TimeSummary::truncate();
         $time = TimeSummary::create($input);
-        return redirect('/summary-report');
+        return redirect('/summary-report')->with('success','Create successfully!');
     }
     public function createTimeIpActivities(Request $request)
     {
         $input = $request->only(['start_time', 'end_time']);
         TimeIpActivities::truncate();
         $time = TimeIpActivities::create($input);
-        return redirect('/ip-activities');
+        return redirect('/ip-activities')->with('success','Create successfully!');
     }
     public function loadIpActivities($layout = 'side-menu', $theme = 'light', $pageName = 'ip-activities') {
         $activeMenu = $this->activeMenu($layout, $pageName);

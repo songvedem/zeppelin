@@ -19,6 +19,12 @@
             </h2>
         </div>
         <div class="intro-y box p-5 mt-12 sm:mt-5 operating-system" style="height: 400px">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong style="font-size: 14px">{{$message}}</strong>
+                </div>
+            @endif
             <form class="form-group" action="{{route('time-ip-activities.store')}}" method="post">
                 @csrf
                 <div class="form-group row">
