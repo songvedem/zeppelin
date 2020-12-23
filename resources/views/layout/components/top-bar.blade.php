@@ -8,6 +8,8 @@
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-run" style="font-size: 14px">
             Rerun Dashboard
         </button>
+        <p class="bg-green-500 text-white font-bold py-2 px-4 rounded last_update" style="margin-left: 10px"><span> Last Updated : </span></p>
+
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->

@@ -26,7 +26,7 @@ class TimeRequest extends FormRequest
     public function rules()
     {
         return [
-            "start_time" => 'required|after:now',
+            "start_time" => 'required',
             "end_time" => 'required|after:start_time'
         ];
     }
