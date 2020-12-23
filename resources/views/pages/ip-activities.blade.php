@@ -25,6 +25,15 @@
                     <strong style="font-size: 14px">{{$message}}</strong>
                 </div>
             @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li style="font-size: 14px">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form class="form-group" action="{{route('time-ip-activities.store')}}" method="post">
                 @csrf
                 <div class="form-group row">

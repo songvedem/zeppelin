@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\MyEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DetectionThresholdupdated;
+use App\Http\Requests\TimeRequest;
 use App\Models\BandwidthHost;
 use App\Models\DetectionThreshold;
 use App\Models\SuspiciousHost;
@@ -57,19 +58,19 @@ class PageController extends Controller
         ]);
     }
 
-    public function createTimeSummary(Request $request)
+    public function createTimeSummary(TimeRequest $request)
     {
         $input = $request->only(['start_time', 'end_time']);
         TimeSummary::truncate();
         $time = TimeSummary::create($input);
-        return redirect('/summary-report')->with('success','Create successfully!');
+        return redirect('/summary-report')->with('success','Update success!');
     }
-    public function createTimeIpActivities(Request $request)
+    public function createTimeIpActivities(TimeRequest $request)
     {
         $input = $request->only(['start_time', 'end_time']);
         TimeIpActivities::truncate();
         $time = TimeIpActivities::create($input);
-        return redirect('/ip-activities')->with('success','Create successfully!');
+        return redirect('/ip-activities')->with('success','Update success!');
     }
     public function loadIpActivities($layout = 'side-menu', $theme = 'light', $pageName = 'ip-activities') {
         $activeMenu = $this->activeMenu($layout, $pageName);
