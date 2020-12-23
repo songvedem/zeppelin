@@ -80,3 +80,17 @@ body {
     margin-bottom: -2px !important;
     font-size: 14px !important;
 }
+.dropdown-except {
+    width: 110px;
+    height: 30px;
+}
+.popup a {
+    color: white;
+}
+.popup a i{
+    color: white;
+}
+.popup a:hover {
+    background-color:  #2196f3;
+    text-decoration: none;
+}

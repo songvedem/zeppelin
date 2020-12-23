@@ -8,6 +8,7 @@
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-run" style="font-size: 14px">
             Rerun Dashboard
         </button>
+
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->
@@ -59,32 +60,32 @@
     <!-- END: Notifications -->
     <!-- BEGIN: Account Menu -->
     <div class="intro-x dropdown w-8 h-8">
-        <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" style="width: 8rem; text-align: center; padding-top: 3px">
+        <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in dropdown-except-add" style="width: 8rem; text-align: center; padding-top: 3px">
             <p style="font-size: 13px">{{ \Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->name : ""}}</p>
         </div>
         <div class="dropdown-box w-56">
             <div class="dropdown-box__content box bg-theme-38 dark:bg-dark-6 text-white">
                 <div class="p-4 border-b border-theme-40 dark:border-dark-3">
-                    <div class="font-medium">{{ $fakers[0]['users'][0]['name'] }}</div>
-                    <div class="text-xs text-theme-41 dark:text-gray-600">{{ $fakers[0]['jobs'][0] }}</div>
+                    <div class="font-medium"  style="font-size: 14px">{{ $fakers[0]['users'][0]['name'] }}</div>
+                    <div class="text-xs text-theme-41 dark:text-gray-600"  style="font-size: 14px">{{ $fakers[0]['jobs'][0] }}</div>
                 </div>
-                <div class="p-2">
-                    <a style="font-size: 13px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                <div class="p-2 popup">
+                    <a style="font-size: 14px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile
                     </a>
-                    <a style="font-size: 13px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                    <a style="font-size: 14px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="edit" class="w-4 h-4 mr-2"></i> Add Account
                     </a>
-                    <a style="font-size: 13px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                    <a style="font-size: 14px" href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="lock" class="w-4 h-4 mr-2"></i> Reset Password
                     </a>
-                    <a style="font-size: 13px" href="/detection-threshold" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
+                    <a style="font-size: 14px" href="/detection-threshold" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
                         <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Detection Threshold
                     </a>
                 </div>
                 <div class="p-2 border-t border-theme-40 dark:border-dark-3">
                     <a style="font-size: 13px" href="{{ route('logout') }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
-                        <i data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout
+                        <i style="font-size: 14px; color: white" data-feather="toggle-right" class="w-4 h-4 mr-2"></i> <span style="font-size: 14px; color: white">Logout</span>
                     </a>
                 </div>
             </div>
@@ -109,13 +110,18 @@
                 var data = JSON.parse(this.response)
 
                 if (requestFinish.status === 200 ) {
-                    console.log(data)
-                    $('.breadcrumb').append(`<p class="bg-green-500 text-white font-bold py-2 px-4 rounded last_update" style="margin-left: 10px"><span> Last Updated : ${data.body.finished}</span></p>`)
+                    var pathname = window.location.pathname;
+                    if (pathname == "/ip-activities" || pathname == "/summary-report") {
+                        $('.breadcrumb').append(`<p class="bg-green-500 text-white font-bold py-2 px-4 rounded last_update last_update_edit" style="margin-left: 10px"><span> Last Updated : ${data.body.finished}</span></p>`)
+                        $('.dropdown-except-add').addClass("dropdown-except")
+                    } else {
+                        $('.breadcrumb').append(`<p class="bg-green-500 text-white font-bold py-2 px-4 rounded last_update" style="margin-left: 10px"><span> Last Updated : ${data.body.finished}</span></p>`)
+                    }
                 }
             }
-            const pathname = window.location.pathname;
+            var pathname = window.location.pathname;
             if (pathname == "/ip-activities" || pathname == "/summary-report") {
-                $(".last_update").addClass("last_update_edit")
+                $('.dropdown-except-add').addClass("dropdown-except")
             }
             requestFinish.send()
             // lấy các notification
