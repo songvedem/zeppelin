@@ -9,6 +9,13 @@
             Rerun Dashboard
         </button>
 
+        @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Models\User::ROLE_ADMIN)
+            <a href="{{route("users.create")}}"
+               class="bg-yellow-700 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" id="btn-run"
+               style="font-size: 14px">
+                Create User
+            </a>
+        @endif
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->

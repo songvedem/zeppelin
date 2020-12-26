@@ -14,11 +14,16 @@ class DetectionThresholdsSeeder extends Seeder
      */
     public function run()
     {
+        DetectionThreshold::truncate();
+
         DetectionThreshold::create([
             'time_interval' => 600,
             'bandwidth' => 200,
             'status' => 404,
             'status_frequency' => 100,
+            "path" => "default",
+            "path_frequency" => 0,
+            "host_frequency" => 0
         ]);
     }
 }

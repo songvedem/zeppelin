@@ -12,13 +12,15 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes;
 
+    const ROLE_ADMIN = 1;
+    const ACTIVE = 1;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role', 'gender', 'active'
     ];
 
     /**

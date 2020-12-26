@@ -6,20 +6,56 @@ use App\Events\MyEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DetectionThresholdupdated;
 use App\Http\Requests\TimeRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\BandwidthHost;
 use App\Models\DetectionThreshold;
 use App\Models\SuspiciousHost;
 use App\Models\TimeIpActivities;
 use App\Models\TimeSummary;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PageController extends Controller
 {
+
+    public function createUser($layout = 'side-menu', $theme = 'light', $pageName = 'user-create')
+    {
+        if (Auth::user()->role != User::ROLE_ADMIN) {
+            return redirect('/');
+        }
+        $activeMenu = $this->activeMenu($layout, $pageName);
+
+        return view('pages/' . $pageName, [
+            'top_menu' => $this->topMenu(),
+            'side_menu' => $this->sideMenu(),
+            'simple_menu' => $this->simpleMenu(),
+            'first_page_name' => $activeMenu['first_page_name'],
+            'second_page_name' => $activeMenu['second_page_name'],
+            'third_page_name' => $activeMenu['third_page_name'],
+            'page_name' => $pageName,
+            'theme' => $theme,
+            'layout' => $layout,
+            'name' => 'Create User'
+        ]);
+    }
+
+    public function storeUser(UserRequest $request)
+    {
+        $data = $request->all();
+        $data['active'] = User::ACTIVE;
+        $data['password'] = Hash::make($data['password']);
+        $user = User::create($data);
+        return redirect()->route('users.create')->with("success", "Create user success");
+    }
+
     /**
      * Show specified view.
      *
-     * @param  \Illuminate\Http\Request  $request
-     *
+     * @param string $layout
+     * @param string $theme
+     * @param string $pageName
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function loadPage($layout = 'side-menu', $theme = 'light', $pageName = 'dashboard')

@@ -34,5 +34,10 @@ Route::middleware('auth')->group(function() {
     Route::get('/detection-threshold', [PageController::class, 'editDetectionThreshold'])->name('detection-threshold.edit');
     Route::post('/detection-threshold/{id}', [PageController::class, 'updateDetectionThreshold'])->name('detection-threshold.update');
     Route::get("/notifications/{id}" , "App\Http\Controllers\Api\ApiNotificationController@update") ;
+
+    Route::group(["prefix" => 'user'], function () {
+        Route::get('/create', [PageController::class, 'createUser'])->name('users.create');
+        Route::post('/create', [PageController::class, 'storeUser'])->name('users.store');
+    });
 });
 
